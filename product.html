@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowCare - Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Users/vinu/Documents/vscode/project/product.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">GlowCare</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <a href="#cartModal" class="btn btn-outline-light ms-3" data-bs-toggle="modal">Cart (<span id="cart-count">0</span>)</a>
+            </div>
+        </div>
+    </nav>
+
+                <section class="products py-5">
+                    <div class="container">
+                        <h2 class="text-center mb-5">Our Best-Selling Products</h2>
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card shadow-sm">
+                                    <img src="/Users/vinu/Documents/vscode/project/images/WhatsApp Image 2024-12-08 at 20.18.50.jpeg" class="card-img-top" alt="Product 1">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Vitamin C Brightening Serum</h5>
+                                        <p class="card-text">650/-</p>
+                                        <a href="#" class="btn btn-primary add-to-cart" data-name="Vitamin C Brightening Serum" data-price="650">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card shadow-sm">
+                                    <img src="/Users/vinu/Documents/vscode/project/images/retinolmos.JPG" class="card-img-top" alt="Product 2">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Retinol Anti-Aging Cream</h5>
+                                        <p class="card-text">850/-</p>
+                                        <a href="#" class="btn btn-primary add-to-cart" data-name="Retinol Anti-Aging Cream" data-price="850">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card shadow-sm">
+                                    <img src="/Users/vinu/Documents/vscode/project/images/WhatsApp Image 2024-12-08 at 20.17.11.jpeg" class="card-img-top" alt="Product 3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Hyaluronic Acid Moisturizer</h5>
+                                        <p class="card-text">950/-</p>
+                                        <a href="#" class="btn btn-primary add-to-cart" data-name="Hyaluronic Acid Moisturizer" data-price="950">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card shadow-sm">
+                                    <img src="images/salFW.JPG" class="card-img-top" alt="Product 4">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Salicylic Acid Cleanser</h5>
+                                        <p class="card-text">1150/-</p>
+                                        <a href="#" class="btn btn-primary add-to-cart" data-name="Salicylic Acid Cleanser" data-price="1150">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card shadow-sm">
+                                    <img src="/Users/vinu/Documents/vscode/project/images/WhatsApp Image 2024-12-08 at 20.16.06.jpeg" class="card-img-top" alt="Product 5">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Niacinamide Skin Serum</h5>
+                                        <p class="card-text">890/-</p>
+                                        <a href="#" class="btn btn-primary add-to-cart" data-name="Niacinamide Skin Serum" data-price="890">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- New Product -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card shadow-sm">
+                                    <img src="/Users/vinu/Documents/vscode/project/images/WhatsApp Image 2024-12-08 at 20.20.37.jpeg" class="card-img-top" alt="Tea Tree Oil Spot Treatment">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Tea Tree Oil Spot Treatment</h5>
+                                        <p class="card-text">780/-</p>
+                                        <a href="#" class="btn btn-primary add-to-cart" data-name="Tea Tree Oil Spot Treatment" data-price="780">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Repeat the other product cards as necessary -->
+                        </div>
+                    </div>
+                </section>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                            <tr>
+                                <td colspan="5" class="text-center">Your cart is empty</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <h5 class="me-auto">Grand Total: <span id="grand-total">0/-</span></h5>
+                    <a href="checkout.html" class="btn btn-success">Checkout</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Us</h5>
+                    <p>📞 +91 7996546609</p>
+                    <p>✉️ glowCare@gmail.com</p>
+                    <p>📍 Bangalore, 560032, India</p>
+                </div>
+                
+               
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/Users/vinu/Documents/vscode/project/product.html" class="text-white">Products</a></li>
+                        <li><a href="/Users/vinu/Documents/vscode/project/contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+    
+                
+                <div class="col-md-4 mb-3">
+                    <h5>Subscribe to Our Newsletter</h5>
+                    <form action="#" class="d-flex">
+                        <input type="email" class="form-control" placeholder="Enter email" required>
+                        <button class="btn btn-primary ms-2" type="submit">Subscribe</button>
+                    </form>
+                    <p class="mt-2">Stay updated with the latest products and offers!</p>
+                </div>
+            </div>
+          
+            <div class="row mt-4">
+                <div class="col">
+                    <p class="mb-0">&copy; 2024 GlowCare. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/Users/vinu/Documents/vscode/project/cart1.js"></script>
+</body>
+</html>

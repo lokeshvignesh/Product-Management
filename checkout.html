@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowCare - Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">GlowCare</a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/Users/vinu/Documents/vscode/project/home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Users/vinu/Documents/vscode/project/product.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Users/vinu/Documents/vscode/project/contact.html">Contact</a></li>
+                </ul>
+                <a href="#cartModal" class="btn btn-outline-light ms-3" data-bs-toggle="modal">Cart (<span id="cart-count">0</span>)</a>
+            </div>
+        </div>
+    </nav>
+  
+
+    <section class="checkout py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Checkout</h2>
+
+            <!-- Customer Information Form -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5>Customer Details</h5>
+                    <form id="customer-form">
+                        <div class="mb-3">
+                            <label for="full-name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="full-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Shipping Address</label>
+                            <textarea class="form-control" id="address" rows="4" required></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Cart Table -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <tr>
+                        <td colspan="5" class="text-center">Your cart is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between">
+                <h5>Grand Total:</h5>
+                <h5 id="grand-total">0/-</h5>
+            </div>
+            <button type="button" class="btn btn-success mt-3" id="place-order-btn">Place Order</button>
+        </div>
+    </section>
+
+    <script src="cart1.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const placeOrderBtn = document.getElementById('place-order-btn');
+            const customerForm = document.getElementById('customer-form');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItems = document.getElementById('cart-items');
+            const grandTotal = document.getElementById('grand-total');
+
+            function updateCart() {
+                if (cartItems) {
+                    if (cart.length === 0) {
+                        cartItems.innerHTML = '<tr><td colspan="5" class="text-center">Your cart is empty</td></tr>';
+                        grandTotal.textContent = '0/-';
+                        return;
+                    }
+
+                    let total = 0;
+                    cartItems.innerHTML = '';
+                    cart.forEach((item, index) => {
+                        const itemTotal = item.price * item.quantity;
+                        total += itemTotal;
+                        cartItems.innerHTML += `
+                            <tr>
+                                <td>${item.name}</td>
+                                <td>${item.price}/-</td>
+                                <td>
+                                    <input type="number" value="${item.quantity}" class="form-control quantity" data-index="${index}" min="1">
+                                </td>
+                                <td>${itemTotal}/-</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm remove-item" data-index="${index}">Remove</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    grandTotal.textContent = `${total}/-`;
+                }
+            }
+
+            placeOrderBtn.addEventListener('click', () => {
+                // Validate customer details
+                const fullName = document.getElementById('full-name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const address = document.getElementById('address').value;
+
+                if (!fullName || !email || !phone || !address) {
+                    alert("Please fill in all customer details.");
+                    return;
+                }
+
+                // Confirm order placement
+                const confirmOrder = confirm("Are you sure you want to place the order?");
+                if (confirmOrder) {
+                    alert("Order placed successfully!");
+                    localStorage.removeItem('cart'); // Clear the cart
+                    window.location.href = 'home.html'; // Redirect to the home page
+                }
+            });
+
+            // Render the cart items on page load
+            updateCart();
+        });
+    </script>
+    <footer class="bg-dark text-white text-center pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Us</h5>
+                    <p>📞 +91 7996546609</p>
+                    <p>✉️ glowCare@gmail.com</p>
+                    <p>📍 Bangalore, 560032, India</p>
+                </div>
+                
+               
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/Users/vinu/Documents/vscode/project/product.html" class="text-white">Products</a></li>
+                        <li><a href="/Users/vinu/Documents/vscode/project/contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+    
+                
+                <div class="col-md-4 mb-3">
+                    <h5>Subscribe to Our Newsletter</h5>
+                    <form action="#" class="d-flex">
+                        <input type="email" class="form-control" placeholder="Enter email" required>
+                        <button class="btn btn-primary ms-2" type="submit">Subscribe</button>
+                    </form>
+                    <p class="mt-2">Stay updated with the latest products and offers!</p>
+                </div>
+            </div>
+          
+            <div class="row mt-4">
+                <div class="col">
+                    <p class="mb-0">&copy; 2024 GlowCare. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowCare - Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styling for the contact section */
+        .contact-section {
+            padding: 60px 0;
+        }
+        .contact-form {
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info h5 {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .contact-info p {
+            font-size: 15px;
+        }
+        .map-container {
+            border: 1px solid #ddd;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">GlowCare</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/Users/vinu/Documents/vscode/project/home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Users/vinu/Documents/vscode/project/product.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/Users/vinu/Documents/vscode/project/contact.html">Contact</a></li>
+                </ul>
+                <a href="/Users/vinu/Documents/vscode/project/checkout.html" class="btn btn-outline-light ms-3">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Information -->
+                <div class="col-lg-5 mb-4">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out to us for any inquiries or support!</p>
+                        
+                        <h5>Address:</h5>
+                        <p>123 GlowCare Avenue, Skincare City, SC 12345</p>
+
+                        <h5>Phone:</h5>
+                        <p>+91 7996546609</p>
+
+                        <h5>Email:</h5>
+                        <p>support@glowcare.com</p>
+
+                        <h5>Office Hours:</h5>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <!-- Success message div -->
+                    <div id="message-sent" class="alert alert-success d-none" role="alert">
+                        Message Sent Successfully!
+                    </div>
+                    <div class="contact-form">
+                        <h4>Get In Touch</h4>
+                        <form id="contact-form" action="#" method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h4 class="text-center mb-4">Our Office Location</h4>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps?q=Presidency%20University&z=12&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Us</h5>
+                    <p>📞 +91 7996546609</p>
+                    <p>✉️ glowCare@gmail.com</p>
+                    <p>📍 Bangalore, 560032, India</p>
+                </div>
+                
+               
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/Users/vinu/Documents/vscode/project/product.html" class="text-white">Products</a></li>
+                        <li><a href="/Users/vinu/Documents/vscode/project/contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+    
+                
+                <div class="col-md-4 mb-3">
+                    <h5>Subscribe to Our Newsletter</h5>
+                    <form action="#" class="d-flex">
+                        <input type="email" class="form-control" placeholder="Enter email" required>
+                        <button class="btn btn-primary ms-2" type="submit">Subscribe</button>
+                    </form>
+                    <p class="mt-2">Stay updated with the latest products and offers!</p>
+                </div>
+            </div>
+          
+            <div class="row mt-4">
+                <div class="col">
+                    <p class="mb-0">&copy; 2024 GlowCare. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript for Success Message -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from reloading the page
+
+            // Show the success message
+            const messageDiv = document.getElementById('message-sent');
+            messageDiv.classList.remove('d-none');
+
+            // Reset the form fields
+            this.reset();
+
+            // Optionally hide the message after a few seconds (optional)
+            setTimeout(() => {
+                messageDiv.classList.add('d-none');
+            }, 5000); // 5 seconds
+        });
+    </script>
+</body>
+</html>
